@@ -1,4 +1,4 @@
-# Amandeep Singh - Personal Portfolio
+# Aman Singh - Personal Portfolio
 
 A modern, animated personal portfolio website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
@@ -85,7 +85,7 @@ The site automatically deploys to GitHub Pages when pushing to the `main` branch
 
 ## Author
 
-**Amandeep Singh**
+**Aman Singh**
 - LinkedIn: [linkedin.com/in/amand-singh](https://www.linkedin.com/in/amand-singh/)
 - GitHub: [github.com/simanam](https://github.com/simanam)
 - Email: aman@logixtecs.com

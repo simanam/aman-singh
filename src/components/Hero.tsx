@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import InteractiveAvatar from './InteractiveAvatar'
 
+const basePath = process.env.NODE_ENV === 'production' ? '/aman-singh' : ''
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -83,7 +85,7 @@ export default function Hero() {
               variants={itemVariants}
               className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4"
             >
-              Aman<span className="text-purple">deep</span> Singh
+              Aman <span className="text-purple">Singh</span>
             </motion.h1>
 
             <motion.h2
@@ -179,7 +181,7 @@ export default function Hero() {
               <div
                 className="absolute -inset-8 opacity-30"
                 style={{
-                  backgroundImage: 'url(/background.svg)',
+                  backgroundImage: `url(${basePath}/background.svg)`,
                   backgroundRepeat: 'repeat',
                   backgroundSize: '160px auto',
                 }}
