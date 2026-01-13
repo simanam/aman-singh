@@ -41,9 +41,27 @@ export default function InteractiveAvatar({ isThinking = false }: InteractiveAva
   const rightBrowYSpring = useSpring(rightBrowY, { stiffness: 150, damping: 20 })
   const rightBrowRotateSpring = useSpring(rightBrowRotate, { stiffness: 150, damping: 20 })
 
+  // Thinking expression - eyes look up and to the side
+  useEffect(() => {
+    if (isThinking) {
+      // Classic "thinking" pose: eyes look up and to the right
+      leftEyeX.set(4)    // Both eyes look slightly right
+      leftEyeY.set(-6)   // Looking up
+      rightEyeX.set(6)   // Right eye looks more to the right
+      rightEyeY.set(-7)  // Right eye looks up a bit more
+
+      // Raise one eyebrow more than the other (quizzical look)
+      leftBrowY.set(-2)
+      rightBrowY.set(-6)  // Right brow raised higher
+      leftBrowRotate.set(2)
+      rightBrowRotate.set(-4)  // Right brow tilted up
+    }
+  }, [isThinking, leftEyeX, leftEyeY, rightEyeX, rightEyeY, leftBrowY, rightBrowY, leftBrowRotate, rightBrowRotate])
+
   // Mouse move handler
   const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!svgRef.current) return
+    // Don't track mouse when thinking
+    if (isThinking || !svgRef.current) return
 
     const rect = svgRef.current.getBoundingClientRect()
     const svgCenterX = rect.left + rect.width / 2
@@ -112,7 +130,7 @@ export default function InteractiveAvatar({ isThinking = false }: InteractiveAva
       leftBrowRotate.set(offsetX * 0.5)
       rightBrowRotate.set(offsetX * 0.5)
     }
-  }, [leftEyeX, leftEyeY, rightEyeX, rightEyeY, leftBrowY, rightBrowY, leftBrowRotate, rightBrowRotate])
+  }, [isThinking, leftEyeX, leftEyeY, rightEyeX, rightEyeY, leftBrowY, rightBrowY, leftBrowRotate, rightBrowRotate])
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove)

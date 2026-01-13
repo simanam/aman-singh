@@ -60,22 +60,23 @@ export default function AvatarChat({ isThinking, setIsThinking }: AvatarChatProp
   return (
     <div className="relative flex flex-col items-center">
       {/* Speech Bubble - Response from avatar */}
+      {/* Positioned to the upper left of the avatar, with pointer pointing toward avatar */}
       <AnimatePresence>
         {(response || error) && !isThinking && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            exit={{ opacity: 0, scale: 0.8, y: 10 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="absolute -left-4 sm:-left-16 top-8 sm:top-16 z-20 max-w-[200px] sm:max-w-[280px]"
+            className="absolute -left-2 sm:-left-4 top-[60px] sm:top-[80px] z-20 w-[180px] sm:w-[220px]"
           >
-            <div className="relative bg-white rounded-2xl px-4 py-3 shadow-xl border-2 border-foreground/80">
-              <p className="text-foreground text-sm leading-relaxed font-medium">
+            <div className="relative bg-white rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-xl border-2 border-foreground/80">
+              <p className="text-foreground text-xs sm:text-sm leading-relaxed font-medium">
                 {error ? error : response}
               </p>
-              {/* Speech bubble pointer */}
-              <div className="absolute -bottom-3 right-8 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[14px] border-t-foreground/80" />
-              <div className="absolute -bottom-2 right-[34px] w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[12px] border-t-white" />
+              {/* Speech bubble pointer - pointing down-right toward avatar */}
+              <div className="absolute -bottom-3 right-4 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[14px] border-t-foreground/80" />
+              <div className="absolute -bottom-[10px] right-[42px] w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[11px] border-t-white" />
             </div>
             {/* Clear button */}
             <button
@@ -88,7 +89,7 @@ export default function AvatarChat({ isThinking, setIsThinking }: AvatarChatProp
         )}
       </AnimatePresence>
 
-      {/* Thinking Cloud */}
+      {/* Thinking Cloud - positioned to the upper right */}
       <AnimatePresence>
         {isThinking && (
           <motion.div
@@ -96,31 +97,31 @@ export default function AvatarChat({ isThinking, setIsThinking }: AvatarChatProp
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.3 }}
-            className="absolute -right-4 sm:-right-8 top-4 sm:top-8 z-20"
+            className="absolute -right-2 sm:-right-4 top-[40px] sm:top-[50px] z-20"
           >
-            {/* Thought bubble trail */}
-            <div className="absolute bottom-0 left-0 flex flex-col items-center gap-1">
-              <motion.div
-                className="w-2 h-2 bg-white rounded-full border-2 border-foreground/60"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-              />
+            {/* Thought bubble trail - leading down toward head */}
+            <div className="absolute -bottom-6 left-2 flex flex-col items-center gap-1">
               <motion.div
                 className="w-3 h-3 bg-white rounded-full border-2 border-foreground/60"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 0.8, repeat: Infinity, delay: 0.15 }}
               />
+              <motion.div
+                className="w-2 h-2 bg-white rounded-full border-2 border-foreground/60"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+              />
             </div>
             {/* Main thought cloud */}
             <motion.div
-              className="relative ml-6 bg-white rounded-[40px] px-5 py-3 shadow-lg border-2 border-foreground/60"
+              className="relative bg-white rounded-[40px] px-4 py-2 sm:px-5 sm:py-3 shadow-lg border-2 border-foreground/60"
               animate={{ y: [0, -4, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               style={{
                 borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
               }}
             >
-              <span className="text-foreground font-semibold text-sm italic">Thinking..</span>
+              <span className="text-foreground font-semibold text-xs sm:text-sm italic">Thinking..</span>
             </motion.div>
           </motion.div>
         )}
