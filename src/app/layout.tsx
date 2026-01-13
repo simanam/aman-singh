@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description: 'Enterprise AI Systems Designer specializing in Data Governance, Compliance, and Security at Scale. Built production AI platforms serving 30,000+ users.',
   keywords: ['AI', 'Enterprise Systems', 'Data Governance', 'Machine Learning', 'Product Management', 'USPS', 'AI Platform'],
   authors: [{ name: 'Amandeep Singh' }],
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'Amandeep Singh | Enterprise AI Systems Designer',
     description: 'Enterprise AI Systems Designer specializing in Data Governance, Compliance, and Security at Scale.',
