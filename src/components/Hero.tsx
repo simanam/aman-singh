@@ -175,6 +175,15 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <div className="relative">
+              {/* Background pattern behind avatar */}
+              <div
+                className="absolute -inset-8 opacity-30"
+                style={{
+                  backgroundImage: 'url(/background.svg)',
+                  backgroundRepeat: 'repeat',
+                  backgroundSize: '160px auto',
+                }}
+              />
               {/* Glow effect behind avatar */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple/20 to-teal/20 rounded-full blur-3xl scale-110" />
               <InteractiveAvatar />
