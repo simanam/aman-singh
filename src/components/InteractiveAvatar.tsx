@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { motion, useAnimation, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 type Expression = 'neutral' | 'happy' | 'curious' | 'wink' | 'crosseyed'
 
@@ -14,8 +14,7 @@ export default function InteractiveAvatar({ isThinking = false }: InteractiveAva
   const [expression, setExpression] = useState<Expression>('neutral')
   const [isHovering, setIsHovering] = useState(false)
   const [isNoseHover, setIsNoseHover] = useState(false)
-  const leftEyeControls = useAnimation()
-  const rightEyeControls = useAnimation()
+  const [isBlinking, setIsBlinking] = useState(false)
 
   // Use motion values for smooth eye tracking
   const leftEyeX = useMotionValue(0)
@@ -141,29 +140,31 @@ export default function InteractiveAvatar({ isThinking = false }: InteractiveAva
   useEffect(() => {
     const blink = () => {
       if (expression !== 'wink') {
-        leftEyeControls.start({ scaleY: 0.1, transition: { duration: 0.08 } })
-        rightEyeControls.start({ scaleY: 0.1, transition: { duration: 0.08 } })
-
+        setIsBlinking(true)
         setTimeout(() => {
-          leftEyeControls.start({ scaleY: 1, transition: { duration: 0.08 } })
-          rightEyeControls.start({ scaleY: 1, transition: { duration: 0.08 } })
-        }, 80)
+          setIsBlinking(false)
+        }, 100)
       }
     }
 
     // Initial blink after mount
     const initialTimeout = setTimeout(blink, 1000)
 
-    // Random blink interval
-    const blinkInterval = setInterval(() => {
-      blink()
-    }, 2500 + Math.random() * 2000)
+    // Random blink interval (2.5-4.5 seconds)
+    const scheduleNextBlink = () => {
+      return setTimeout(() => {
+        blink()
+        blinkTimeoutRef = scheduleNextBlink()
+      }, 2500 + Math.random() * 2000)
+    }
+
+    let blinkTimeoutRef = scheduleNextBlink()
 
     return () => {
       clearTimeout(initialTimeout)
-      clearInterval(blinkInterval)
+      clearTimeout(blinkTimeoutRef)
     }
-  }, [expression, leftEyeControls, rightEyeControls])
+  }, [expression])
 
   // Expression change on hover
   useEffect(() => {
@@ -295,44 +296,40 @@ export default function InteractiveAvatar({ isThinking = false }: InteractiveAva
         <line id="left-eye-line" x1="197.5" y1="230.5" x2="204.5" y2="230.5" stroke="#7F00E0" strokeWidth="3" strokeLinecap="round"/>
 
         {/* Interactive Left Eye - Using circles for better control */}
-        <motion.g
-          animate={leftEyeControls}
-          style={{ transformOrigin: '200.758px 213.2px' }}
-        >
-          <motion.circle
-            cx="200.758"
-            cy="213.2"
-            r="9.4"
-            fill="#7F00E0"
-            style={{
-              x: leftEyeXSpring,
-              y: leftEyeYSpring,
-            }}
-            animate={{
-              scaleY: expression === 'wink' ? 0.1 : 1
-            }}
-            transition={{ duration: 0.1 }}
-            filter="url(#glow)"
-          />
-        </motion.g>
+        <motion.circle
+          cx="200.758"
+          cy="213.2"
+          r="9.4"
+          fill="#7F00E0"
+          style={{
+            x: leftEyeXSpring,
+            y: leftEyeYSpring,
+            transformOrigin: '200.758px 213.2px',
+          }}
+          animate={{
+            scaleY: isBlinking || expression === 'wink' ? 0.1 : 1
+          }}
+          transition={{ duration: 0.08 }}
+          filter="url(#glow)"
+        />
 
         {/* Interactive Right Eye */}
-        <motion.g
-          animate={rightEyeControls}
-          style={{ transformOrigin: '299.242px 213.2px' }}
-        >
-          <motion.circle
-            cx="299.242"
-            cy="213.2"
-            r="9.4"
-            fill="#7F00E0"
-            style={{
-              x: rightEyeXSpring,
-              y: rightEyeYSpring,
-            }}
-            filter="url(#glow)"
-          />
-        </motion.g>
+        <motion.circle
+          cx="299.242"
+          cy="213.2"
+          r="9.4"
+          fill="#7F00E0"
+          style={{
+            x: rightEyeXSpring,
+            y: rightEyeYSpring,
+            transformOrigin: '299.242px 213.2px',
+          }}
+          animate={{
+            scaleY: isBlinking ? 0.1 : 1
+          }}
+          transition={{ duration: 0.08 }}
+          filter="url(#glow)"
+        />
 
         {/* Animated Eyebrows - follow mouse with natural movement */}
         <motion.path
