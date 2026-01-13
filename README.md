@@ -4,7 +4,7 @@ A modern, animated personal portfolio website built with Next.js 14, TypeScript,
 
 ## Live Site
 
-[https://simanam.github.io/personalsite-new](https://simanam.github.io/personalsite-new)
+[https://simanam.github.io/aman-singh](https://simanam.github.io/aman-singh)
 
 ## Features
 
@@ -33,10 +33,10 @@ A modern, animated personal portfolio website built with Next.js 14, TypeScript,
 
 ```bash
 # Clone the repository
-git clone https://github.com/simanam/personalsite-new.git
+git clone https://github.com/simanam/aman-singh.git
 
 # Navigate to the project
-cd personalsite-new
+cd aman-singh
 
 # Install dependencies
 npm install

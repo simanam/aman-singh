@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/personalsite-new' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/aman-singh' : '',
 }
 
 module.exports = nextConfig
