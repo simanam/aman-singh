@@ -10,9 +10,9 @@ const expertiseAreas = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
-    title: 'Data Governance & Security',
-    description: 'PII detection and blocking at ingestion with zero false negatives. Role-based document access ensuring users only interact with authorized data.',
-    features: ['PII Detection', 'Access Control', 'Audit Logging', 'Compliance Design'],
+    title: 'AI Deployment & Implementation',
+    description: 'Taking AI from prototype to production inside complex enterprise environments. Configuration, integration, stakeholder alignment, and rollout.',
+    features: ['LLM Integration', 'Enterprise Rollout', 'Stakeholder Management'],
     color: 'purple',
   },
   {
@@ -21,9 +21,9 @@ const expertiseAreas = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
-    title: 'Enterprise AI Architecture',
-    description: 'Multi-tenant platforms with full-stack coordination from identity management to Azure infrastructure. Scaled systems from pilot to enterprise-wide deployment.',
-    features: ['Multi-Tenant Design', 'Identity Integration', 'Azure Infrastructure', 'Scalable Systems'],
+    title: 'AI Product Building',
+    description: 'Designing and shipping AI products end to end — data pipelines, tool use, streaming, mobile architecture, and SaaS business models.',
+    features: ['Claude API', 'FastAPI', 'Product Spec', 'Data Pipelines'],
     color: 'teal',
   },
   {
@@ -32,9 +32,9 @@ const expertiseAreas = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
       </svg>
     ),
-    title: 'Intelligent Workflows',
-    description: 'File approval workflows enforcing organizational hierarchy. Context engineering layers ensuring AI access only to authorized documents.',
-    features: ['Approval Workflows', 'Context Engineering', 'Human-in-Loop', 'Document Indexing'],
+    title: 'Conversational AI Systems',
+    description: 'Building chat and voice-first AI experiences with real-time tool use, context memory, and multi-provider routing.',
+    features: ['Tool Use', 'SSE Streaming', 'Multi-provider Routing', 'Voice AI'],
     color: 'purple',
   },
   {
@@ -43,18 +43,18 @@ const expertiseAreas = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
       </svg>
     ),
-    title: 'Compliance Management',
-    description: 'Compliance-first design for sensitive network data. Special rules for sensitive groups with stricter controls and forensic analysis capabilities.',
-    features: ['Regulatory Compliance', 'Forensic Analysis', 'Sensitive Data Rules', 'Identity Verification'],
+    title: 'Data & Intelligence',
+    description: 'Collecting and structuring proprietary datasets that power AI decisions — from USDA/EIA/FRED integrations to PostGIS spatial queries.',
+    features: ['PostGIS', 'Data Architecture', 'Live APIs', 'RAG'],
     color: 'teal',
   },
 ]
 
 const metrics = [
-  { value: '30K+', label: 'Users Served', description: 'Enterprise-wide deployment' },
-  { value: '0', label: 'False Negatives', description: 'In PII detection' },
-  { value: '100%', label: 'Audit Coverage', description: 'All interactions logged' },
-  { value: '30x', label: 'Scale Growth', description: 'From pilot to production' },
+  { value: '30,000+', label: 'Users on production AI', description: 'Enterprise-wide deployment' },
+  { value: '180', label: 'Active drivers on App Store', description: 'Truckers Routine' },
+  { value: '1,768', label: 'Fuel stations in live database', description: 'Proprietary data' },
+  { value: '7 yrs', label: 'Enterprise AI experience', description: 'From pilot to production' },
 ]
 
 export default function Expertise() {
@@ -77,10 +77,10 @@ export default function Expertise() {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Areas of <span className="text-purple">Expertise</span>
+            What I <span className="text-purple">Do</span>
           </h2>
           <p className="text-muted max-w-2xl mx-auto">
-            Building enterprise AI systems with security-first architecture and compliance at the core
+            Taking AI from idea to production inside complex environments
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-purple to-teal rounded-full mx-auto mt-4" />
         </motion.div>
@@ -165,8 +165,8 @@ export default function Expertise() {
           <blockquote className="relative max-w-3xl mx-auto">
             <div className="text-6xl text-purple/20 absolute -top-4 -left-4">&ldquo;</div>
             <p className="text-lg sm:text-xl text-muted italic px-8">
-              I think about AI systems like security engineers think about networks: what are the
-              attack surfaces? Where do bad things leak? What prevents that?
+              I build AI like engineers build security systems — always asking: what are the attack
+              surfaces? Where do things break? What prevents that?
             </p>
             <div className="text-6xl text-purple/20 absolute -bottom-8 -right-4 rotate-180">&rdquo;</div>
           </blockquote>

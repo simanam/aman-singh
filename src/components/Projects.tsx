@@ -6,71 +6,75 @@ import { useRef, useState } from 'react'
 const projects = [
   {
     id: 1,
-    title: 'USPS AI Data Platform',
-    category: 'Enterprise AI',
+    title: 'Rigsy Fleet',
+    category: 'Startup',
     description:
-      'Multi-tenant, role-based AI system serving 30,000+ employees with PII detection, compliance-first design, and Okta-integrated identity verification.',
-    tech: ['Azure OpenAI', 'Python', 'React', 'PostgreSQL', 'Okta'],
+      'AI load evaluation platform for trucking fleet managers. Ask "Should I take this load?" and get a real answer — above/below market rate, net profit after fuel, route data, and lane signal intelligence.',
+    tech: ['Claude Tool Use', 'SSE Streaming', 'USDA/EIA/FRED/BTS', 'PostGIS', 'FastAPI'],
     highlights: [
-      'Scaled from 1,000 to 30,000+ users',
-      'Zero false negatives in PII detection',
-      'Full audit logging for compliance',
+      'Live market rate comparison',
+      'Net profit calculation after fuel',
+      'Lane signal intelligence',
     ],
-    image: '/projects/usps-platform.jpg',
+    image: '/projects/rigsy-fleet.jpg',
     color: 'purple',
     featured: true,
+    status: 'In Development',
   },
   {
     id: 2,
-    title: 'Logixtecs Solutions LLC',
-    category: 'Startup',
+    title: 'USPS AI Data Platform',
+    category: 'Enterprise AI',
     description:
-      'Building AI infrastructure for the logistics industry, focusing on intelligent routing, demand forecasting, and operational optimization. Side venture run after hours.',
-    tech: ['Next.js', 'FastAPI', 'LangChain', 'Vector DB', 'AWS'],
+      'Multi-tenant, role-based AI platform serving 30,000+ USPS employees. PII detection at ingestion, Okta identity verification, compliance-first design, scaled from 1,000-user pilot.',
+    tech: ['Azure OpenAI', 'Python', 'React', 'PostgreSQL', 'Okta'],
     highlights: [
-      'Real-time logistics optimization',
-      'Predictive demand modeling',
-      'Multi-carrier integration',
+      'Scaled from 1,000 to 30,000+ users',
+      'PII detection at ingestion',
+      'Full audit logging for compliance',
     ],
-    image: '/projects/logixtecs.jpg',
+    image: '/projects/usps-platform.jpg',
     color: 'teal',
     featured: true,
+    status: 'Production',
   },
   {
     id: 3,
-    title: 'Healthcare AI Consultation',
-    category: 'AI Consulting',
+    title: 'Truckers Routine',
+    category: 'Startup',
     description:
-      'Advised Envoy Health on implementing AI solutions with strict HIPAA compliance, data governance frameworks, and secure patient data handling.',
-    tech: ['HIPAA Compliance', 'Data Governance', 'Azure', 'ML Models'],
+      'Health and wellness app for truck drivers. 180 active users, App Store presence. Nutrition database covering all major US and UK truck stop chains.',
+    tech: ['iOS', 'App Store', 'Nutrition Data'],
     highlights: [
-      'HIPAA-compliant architecture',
-      'Patient data anonymization',
-      'Clinical workflow integration',
+      '180 active drivers',
+      'App Store presence',
+      'Comprehensive nutrition database',
     ],
-    image: '/projects/healthcare.jpg',
+    image: '/projects/truckers-routine.jpg',
     color: 'purple',
     featured: false,
+    status: 'Live · 180 users',
   },
   {
     id: 4,
-    title: 'Document Intelligence System',
-    category: 'Enterprise AI',
+    title: 'Rigsy Driver',
+    category: 'Startup',
     description:
-      'Progressive document indexing system with human-in-the-loop review, context engineering for AI access control, and intelligent search.',
-    tech: ['RAG', 'Vector Search', 'Python', 'React', 'Azure Cognitive'],
+      'Voice-first AI co-pilot for truck drivers — GPS-verified detention tracking, nutrition logging by voice, offline-first mobile, multi-provider AI routing.',
+    tech: ['Swift/SwiftUI', 'Claude', 'GPT-4o', 'PostGIS', 'FastAPI'],
     highlights: [
-      'Context-aware document retrieval',
-      'Human-in-loop validation',
-      'Hierarchical access control',
+      'Voice-first AI interaction',
+      'GPS-verified detention tracking',
+      'Offline-first mobile architecture',
     ],
-    image: '/projects/doc-intel.jpg',
+    image: '/projects/rigsy-driver.jpg',
     color: 'teal',
     featured: false,
+    status: 'In Development',
   },
 ]
 
-const categories = ['All', 'Enterprise AI', 'Startup', 'AI Consulting']
+const categories = ['All', 'Enterprise AI', 'Startup']
 
 export default function Projects() {
   const ref = useRef(null)
@@ -98,7 +102,7 @@ export default function Projects() {
             Featured <span className="text-purple">Projects</span>
           </h2>
           <p className="text-muted max-w-2xl">
-            Enterprise AI systems built with security, compliance, and scale in mind
+            AI products built for the real world — from enterprise platforms to founder-led startups
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-purple to-teal rounded-full mt-4" />
         </motion.div>
@@ -228,7 +232,7 @@ export default function Projects() {
                     </div>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
@@ -238,6 +242,18 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
+
+                    {/* Status */}
+                    {'status' in project && (
+                      <div className="flex items-center gap-2">
+                        <span className={`w-2 h-2 rounded-full ${
+                          project.status === 'Production' || project.status?.startsWith('Live')
+                            ? 'bg-green-500'
+                            : 'bg-yellow-500'
+                        }`} />
+                        <span className="text-xs font-medium text-muted">{project.status}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

@@ -27,10 +27,11 @@ const itemVariants = {
 }
 
 const skills = [
-  'Data Governance',
-  'AI Architecture',
-  'Enterprise Security',
-  'Compliance Design',
+  'AI Implementation',
+  'Claude / LLM Integration',
+  'Product Strategy',
+  'Enterprise Deployment',
+  'Founder',
 ]
 
 interface HeroProps {
@@ -73,7 +74,7 @@ export default function Hero({ isThinking, setIsThinking }: HeroProps) {
             <motion.div variants={itemVariants} className="mb-4">
               <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple/10 text-purple text-sm font-medium">
                 <span className="w-2 h-2 rounded-full bg-purple mr-2 animate-pulse" />
-                Open to AI Product Leadership roles
+                Open to AI Implementation &amp; Product roles
               </span>
             </motion.div>
 
@@ -81,7 +82,7 @@ export default function Hero({ isThinking, setIsThinking }: HeroProps) {
               variants={itemVariants}
               className="text-lg sm:text-xl text-muted mb-2"
             >
-              Hi, my name is
+              Hi, I&apos;m
             </motion.p>
 
             <motion.h1
@@ -95,17 +96,17 @@ export default function Hero({ isThinking, setIsThinking }: HeroProps) {
               variants={itemVariants}
               className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold text-muted mb-6"
             >
-              Enterprise AI Systems Designer
+              AI Implementation &amp; Product Leader
             </motion.h2>
 
             <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg text-muted/80 mb-8 leading-relaxed"
             >
-              I architect <span className="text-foreground font-medium">production AI platforms</span> where
-              data governance, compliance, and intelligent workflows are{' '}
-              <span className="text-purple font-medium">architectural requirements</span>—not afterthoughts.
-              Built systems serving <span className="text-foreground font-medium">30,000+ users</span> at USPS.
+              I build <span className="text-foreground font-medium">AI products that work in the real world</span> — not
+              just in demos. Deployed AI for{' '}
+              <span className="text-purple font-medium">30,000+ users at USPS</span>. Founder building
+              AI for the <span className="text-foreground font-medium">trucking industry</span>.
             </motion.p>
 
             {/* Skills Pills */}

@@ -58,14 +58,14 @@ export default function Contact() {
             </span>
 
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Let&apos;s Build Something <span className="text-purple">Amazing</span>
+              Let&apos;s Build Something <span className="text-purple">Real</span>
             </h2>
 
             <p className="text-lg text-muted mb-8 leading-relaxed">
-              I&apos;m actively exploring <span className="text-foreground font-medium">Chief Product Officer</span> and{' '}
-              <span className="text-foreground font-medium">AI Product leadership roles</span> where I can architect
-              intelligent systems for regulated industries. If you&apos;re building something ambitious in
-              enterprise AI, I&apos;d love to connect.
+              I&apos;m actively exploring <span className="text-foreground font-medium">AI implementation</span>,{' '}
+              <span className="text-foreground font-medium">solutions engineering</span>, and{' '}
+              <span className="text-foreground font-medium">product roles</span> at companies where AI needs to
+              actually get deployed — not just pitched. If that&apos;s you, let&apos;s talk.
             </p>
           </motion.div>
 
@@ -89,7 +89,7 @@ export default function Contact() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              Get in Touch
+              Send a Message
             </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/amand-singh/"

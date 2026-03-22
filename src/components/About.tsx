@@ -5,34 +5,28 @@ import { useRef } from 'react'
 
 const timeline = [
   {
-    year: '2020 - Present',
-    role: 'Lead Engineer - AI Data Platform',
+    year: '2019 - Present',
+    role: 'Lead Engineer & AI Platform Architect',
     company: 'USPS',
-    description: 'Architecting multi-tenant AI platform serving 30,000+ employees with data governance and compliance',
+    description: 'Led architecture and enterprise-wide deployment of USPS\'s internal AI Data Platform. Scaled from 1,000-user pilot to 30,000+ employees. Built PII detection, role-based access, Okta integration, and full audit logging.',
     type: 'current',
   },
   {
-    year: '2024 - Present',
-    role: 'Founder',
-    company: 'Logixtecs Solutions LLC',
-    description: 'Building AI infrastructure for logistics industry (after hours)',
+    year: '2025 - Present',
+    role: 'Founder & AI Product Engineer',
+    company: 'Logixtecs',
+    description: 'Building Rigsy — AI load evaluation and driver co-pilot for the trucking industry. Claude tool use, live USDA/EIA/FRED/BTS data, PostGIS fuel station search, voice-first mobile architecture. Truckers Routine: 180 active drivers, App Store.',
     type: 'current',
   },
   {
-    year: '2022 - 2023',
-    role: 'AI Consultant',
+    year: '2023 - Present',
+    role: 'AI Consultant / CPO',
     company: 'Envoy Health',
-    description: 'Healthcare AI solutions and data governance',
-    type: 'work',
+    description: 'Led product lifecycle as CPO in medical tourism space. Now consulting on AI strategy including a conversational doctor-matching platform (in product requirements phase).',
+    type: 'current',
   },
 ]
 
-const techStack = [
-  { category: 'AI/ML', items: ['Azure OpenAI', 'LangChain', 'RAG Systems', 'Vector DBs'] },
-  { category: 'Backend', items: ['Python', 'Node.js', 'FastAPI', 'PostgreSQL'] },
-  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind'] },
-  { category: 'Infrastructure', items: ['Azure', 'Okta', 'Docker', 'CI/CD'] },
-]
 
 export default function About() {
   const ref = useRef(null)
@@ -65,49 +59,36 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-muted leading-relaxed">
-              I design enterprise-grade AI systems where{' '}
-              <span className="text-foreground font-medium">data governance</span>,{' '}
-              <span className="text-foreground font-medium">compliance</span>, and{' '}
-              <span className="text-foreground font-medium">intelligent workflows</span> are architectural
-              requirements—not afterthoughts.
+              I sit at the intersection of <span className="text-foreground font-medium">product and engineering</span>.
+              I can write the spec, understand the architecture, and get it deployed.
             </p>
 
             <p className="text-muted leading-relaxed">
-              As Lead Engineer for the <span className="text-purple font-semibold">USPS AI Data Platform</span>,
-              I architected and shipped a multi-tenant, role-based AI system serving 30,000+ employees.
-              The platform features PII detection, role-based document access, and Okta-integrated
-              identity verification across all interactions.
+              At <span className="text-purple font-semibold">USPS</span>, I led the architecture and rollout of an
+              AI platform that scaled from 1,000 to 30,000+ employees — handling PII detection, role-based access,
+              compliance workflows, and enterprise-wide deployment. I coordinated across engineering, identity,
+              infrastructure, and business stakeholders to ship something that actually stuck.
             </p>
 
             <p className="text-muted leading-relaxed">
-              I think about AI systems like security engineers think about networks:{' '}
-              <span className="italic text-foreground">
-                What are the attack surfaces? Where do bad things leak? What prevents that?
-              </span>
+              As a founder at <span className="text-purple font-semibold">Logixtecs</span>, I&apos;m building
+              Rigsy — an AI suite for the trucking industry. Rigsy Fleet evaluates loads using live data from
+              USDA, EIA, FRED, and BTS. Truckers Routine has 180 active drivers on the App Store. I&apos;ve
+              collected proprietary data across 1,768 US fuel stations and all major food chains.
+            </p>
+
+            <p className="text-muted leading-relaxed">
+              I&apos;m most effective in roles where AI needs to go from idea to working system inside complex
+              environments — and where being both technical and product-minded is an advantage, not a conflict.
             </p>
 
             <div className="pt-4">
-              <h3 className="font-display font-semibold text-foreground mb-4">Core Technologies</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {techStack.map((stack, idx) => (
-                  <motion.div
-                    key={stack.category}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.4 + idx * 0.1 }}
-                  >
-                    <h4 className="text-sm font-semibold text-purple mb-2">{stack.category}</h4>
-                    <ul className="space-y-1">
-                      {stack.items.map((item) => (
-                        <li key={item} className="text-sm text-muted flex items-center">
-                          <span className="w-1.5 h-1.5 rounded-full bg-teal mr-2" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
-              </div>
+              <blockquote className="border-l-4 border-purple/30 pl-4">
+                <p className="text-muted italic leading-relaxed">
+                  &ldquo;I build AI like engineers build security systems — always asking: what are the
+                  attack surfaces? Where do things break? What prevents that?&rdquo;
+                </p>
+              </blockquote>
             </div>
           </motion.div>
 
