@@ -104,8 +104,8 @@ export default function Navigation() {
           {/* Resume Button */}
           <div className="hidden md:block">
             <motion.a
-              href="/Aman_Singh_Resume.docx"
-              download="Aman_Singh_Resume.docx"
+              href="/AmanSingh_Resume_2026.pdf"
+              download="AmanSingh_Resume_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-xl border-2 border-purple text-purple text-sm font-semibold transition-all hover:bg-purple hover:text-white"
@@ -159,8 +159,8 @@ export default function Navigation() {
                 </motion.button>
               ))}
               <motion.a
-                href="/Aman_Singh_Resume.docx"
-              download="Aman_Singh_Resume.docx"
+                href="/AmanSingh_Resume_2026.pdf"
+              download="AmanSingh_Resume_2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, x: -20 }}
